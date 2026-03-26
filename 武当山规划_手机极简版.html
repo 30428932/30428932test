@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>武当山规划 - 手机版</title>
+    <style>
+        /* 极简样式 */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: #f5f7fa;
+            color: #333;
+            line-height: 1.5;
+            padding: 12px;
+            font-size: 15px;
+        }
+        
+        .page {
+            max-width: 100%;
+            background: white;
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            margin-bottom: 12px;
+        }
+        
+        .header {
+            text-align: center;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #4a6fa5;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+        
+        .badge {
+            background: #4a6fa5;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 16px;
+            font-size: 13px;
+            display: inline-block;
+        }
+        
+        .section {
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            color: #2c3e50;
+            font-size: 18px;
+            margin-bottom: 12px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid #eaeaea;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .info-line {
+            margin-bottom: 8px;
+            padding-left: 8px;
+            border-left: 3px solid #4a6fa5;
+        }
+        
+        .info-line strong {
+            color: #555;
+            display: inline-block;
+            min-width: 70px;
+        }
+        
+        .day {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 14px;
+            margin-bottom: 12px;
+            border: 1px solid #eaeaea;
+        }
+        
+        .day-title {
+            color: #2c3e50;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .day-tag {
+            background: #4a6fa5;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+        }
+        
+        .time-line {
+            display: flex;
+            margin-bottom: 6px;
+            align-items: flex-start;
+        }
+        
+        .time {
+            background: #764ba2;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            min-width: 70px;
+            text-align: center;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+        
+        .activity {
+            flex: 1;
+            font-size: 14px;
+            color: #555;
+        }
+        
+        .budget-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+            padding: 8px;
+            background: #f0f7ff;
+            border-radius: 8px;
+        }
+        
+        .budget-label {
+            color: #555;
+        }
+        
+        .budget-amount {
+            color: #4a6fa5;
+            font-weight: 600;
+        }
+        
+        .total-budget {
+            background: #4a6fa5;
+            color: white;
+            padding: 16px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 16px;
+        }
+        
+        .tip {
+            background: #fff8e1;
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-left: 4px solid #ffb300;
+        }
+        
+        .tip-title {
+            color: #2c3e50;
+            font-size: 15px;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .tip-content {
+            color: #666;
+            font-size: 13px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 24px;
+            padding-top: 16px;
+            border-top: 1px solid #eaeaea;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .contact {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 12px;
+            margin-top: 12px;
+            font-size: 12px;
+            color: #777;
+        }
+        
+        /* 触摸优化 */
+        .touch-btn {
+            background: #4a6fa5;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 15px;
+            width: 100%;
+            margin: 8px 0;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        
+        .touch-btn:active {
+            opacity: 0.8;
+        }
+        
+        /* 响应式 */
+        @media (max-width: 320px) {
+            body { padding: 8px; font-size: 14px; }
+            .page { padding: 12px; }
+            h1 { font-size: 20px; }
+            .time-line { flex-direction: column; }
+            .time { margin-bottom: 4px; margin-right: 0; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <h1>🏔️ 武当山家庭游</h1>
+            <div class="subtitle">清明节 · 一家三口 · 自驾</div>
+            <div class="badge">4月4日-6日（3天2晚）</div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">👨‍👩‍👦 家庭信息</div>
+            <div class="info-line"><strong>人员：</strong>父母+10岁孩子</div>
+            <div class="info-line"><strong>出发：</strong>宜昌市</div>
+            <div class="info-line"><strong>儿童：</strong>140cm（半价票）</div>
+            <div class="info-line"><strong>交通：</strong>自驾（推荐）</div>
+            <div class="info-line"><strong>距离：</strong>350公里，4-5小时</div>
+            <div class="info-line"><strong>高速：</strong>免费（4.4-4.6）</div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">🏨 住宿安排</div>
+            <div class="info-line"><strong>房型：</strong>家庭房/三人间</div>
+            <div class="info-line"><strong>要求：</strong>早餐+免费停车</div>
+            <div class="info-line"><strong>区域：</strong>景区门口</div>
+            <div class="info-line"><strong>价格：</strong>300-500元/晚</div>
+            <div class="info-line"><strong>总价：</strong>800-1000元（2晚）</div>
+            <div class="info-line"><strong>提醒：</strong>立即预订！</div>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="section">
+            <div class="section-title">🗓️ 三日行程</div>
+            
+            <div class="day">
+                <div class="day-title">
+                    <span>第一天 · 4月4日（周六）</span>
+                    <span class="day-tag">出发日</span>
+                </div>
+                <div class="time-line"><div class="time">07:00</div><div class="activity">宜昌出发</div></div>
+                <div class="time-line"><div class="time">11:30</div><div class="activity">抵达午餐</div></div>
+                <div class="time-line"><div class="time">14:00</div><div class="activity">博物馆参观</div></div>
+                <div class="time-line"><div class="time">16:00</div><div class="activity">玉虚宫游览</div></div>
+                <div class="time-line"><div class="time">18:00</div><div class="activity">晚餐入住</div></div>
+            </div>
+            
+            <div class="day">
+                <div class="day-title">
+                    <span>第二天 · 4月5日（周日）</span>
+                    <span class="day-tag">登山日</span>
+                </div>
+                <div class="time-line"><div class="time">06:30</div><div class="activity">早餐准备</div></div>
+                <div class="time-line"><div class="time">07:30</div><div class="activity">进入景区</div></div>
+                <div class="time-line"><div class="time">08:30</div><div class="activity">索道上金顶</div></div>
+                <div class="time-line"><div class="time">09:30-11:30</div><div class="activity">金顶游览</div></div>
+                <div class="time-line"><div class="time">12:00</div><div class="activity">索道下山</div></div>
+                <div class="time-line"><div class="time">14:00</div><div class="activity">南岩宫游览</div></div>
+                <div class="time-line"><div class="time">16:00</div><div class="activity">返回休息</div></div>
+            </div>
+            
+            <div class="day">
+                <div class="day-title">
+                    <span>第三天 · 4月6日（周一）</span>
+                    <span class="day-tag">返程日</span>
+                </div>
+                <div class="time-line"><div class="time">08:30</div><div class="activity">早餐退房</div></div>
+                <div class="time-line"><div class="time">09:30</div><div class="activity">太子坡游览</div></div>
+                <div class="time-line"><div class="time">11:00</div><div class="activity">逍遥谷徒步</div></div>
+                <div class="time-line"><div class="time">12:30</div><div class="activity">午餐购物</div></div>
+                <div class="time-line"><div class="time">13:30</div><div class="activity">开始返程</div></div>
+                <div class="time-line"><div class="time">17:30</div><div class="activity">抵达宜昌</div></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="section">
+            <div class="section-title">💰 费用预算（3人）</div>
+            <div class="budget-item"><div class="budget-label">交通费</div><div class="budget-amount">300元</div></div>
+            <div class="budget-item"><div class="budget-label">住宿费</div><div class="budget-amount">900元</div></div>
+            <div class="budget-item"><div class="budget-label">门票费</div><div class="budget-amount">1,045元</div></div>
+            <div class="budget-item"><div class="budget-label">索道费</div><div class="budget-amount">425元</div></div>
+            <div class="budget-item"><div class="budget-label">餐饮费</div><div class="budget-amount">1,100元</div></div>
+            <div class="budget-item"><div class="budget-label">其他</div><div class="budget-amount">500元</div></div>
+            <div class="total-budget">总预算：3,845元</div>
+        </div>
+    </div>
+    
+    <div class="page">
+        <div class="section">
+            <div class="section-title">⚠️ 重要提醒</div>
+            <div class="tip">
+                <div class="tip-title">🚨 立即行动</div>
+                <div class="tip-content">清明节房源紧张，现在开始预订酒店！</div>
+            </div>
+            <div class="tip">
+                <div class="tip-title">👶 儿童优先</div>
+                <div class="tip-content">放慢节奏，多安排休息，以孩子舒适度为重</div>
+            </div>
+            <div class="tip">
+                <div class="tip-title">🎒 充分准备</div>
+                <div class="tip-content">儿童衣物、药品、零食、娱乐物品提前打包</div>
+            </div>
+            <div class="tip">
+                <div class="tip-title">📱 预订时间</div>
+                <div class="tip-content">酒店现在订，门票4月1日订，火车票3月20日抢</div>
+            </div>
+            <div class="tip">
+                <div class="tip-title">🔁 保持灵活</div>
+                <div class="tip-content">根据实际情况调整计划，不勉强完成所有景点</div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">🎯 核心建议</div>
+            <div class="info-line">1. 选择自驾：最适合家庭出游</div>
+            <div class="info-line">2. 立即预订：清明节住宿紧张</div>
+            <div class="info-line">3. 儿童友好：索道上下，多带零食</div>
+            <div class="info-line">4. 安全第一：孩子不离视线</div>
+            <div class="info-line">5. 享受旅程：创造美好回忆</div>
+        </div>
+        
+        <div class="footer">
+            <p>🏔️ 祝你们全家武当山之旅愉快！ 👨‍👩‍👦</p>
+            <p>规划时间：2026年3月26日</p>
+            <div class="contact">
+                <p><strong>联系方式：</strong></p>
+                <p>武当山景区：0719-5668567</p>
+                <p>十堰旅游：0719-8113866</p>
+                <p>紧急救援：110、120</p>
+            </div>
+        </div>
+        
+        <button class="touch-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">⬆️ 返回顶部</button>
+    </div>
+
+    <script>
+        // 简单的交互
+        document.addEventListener('DOMContentLoaded', function() {
+            // 添加触摸反馈
+            const buttons = document.querySelectorAll('.touch-btn');
+            buttons.forEach(btn => {
+                btn.addEventListener('touchstart', function() {
+                    this.style.opacity = '0.8';
+                });
+                btn.addEventListener('touchend', function() {
+                    this.style.opacity = '1';
+                });
+            });
+            
+            // 防止双击缩放
+            let lastTouchEnd = 0;
+            document.addEventListener('touchend', function(event) {
+                const now = Date.now();
+                if (now - lastTouchEnd <= 300) {
+                    event.preventDefault();
+                }
+                lastTouchEnd = now;
+            }, false);
+        });
+    </script>
+</body>
+</html>
