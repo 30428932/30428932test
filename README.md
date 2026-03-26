@@ -23,7 +23,7 @@ deploy_wudang_plan/
 
 ## 🚀 快速部署
 
-### 方法1：GitHub Pages（免费推荐）
+### 方法：GitHub Pages（免费推荐）
 
 1. **创建GitHub仓库**
    ```bash
@@ -47,17 +47,6 @@ deploy_wudang_plan/
 4. **访问地址**
    `https://你的用户名.github.io/wudang-travel/`
 
-### 方法2：Vercel（更简单）
-
-1. 访问 [vercel.com](https://vercel.com)
-2. 导入GitHub仓库
-3. 自动部署，获得`.vercel.app`域名
-
-### 方法3：Netlify（拖拽上传）
-
-1. 访问 [netlify.com](https://netlify.com)
-2. 拖拽整个文件夹上传
-3. 获得`.netlify.app`域名
 
 ## 📊 网站内容
 
